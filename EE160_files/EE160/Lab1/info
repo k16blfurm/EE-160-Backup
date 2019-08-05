@@ -1,0 +1,77 @@
+
+
+                  Questions To Be Answered
+NOTE: the following questions will be read by a program.  Please enter
+the information on the empty line FOLLOWING each question.  These
+questions will give me some information about you to set up the
+grading data base and also to help me assign you to your team.
+
+
+On the following blank line, enter your name (Last, First):
+Furman, Blaine
+
+On the following blank line, enter the lab section you are in (001,002,003,004):
+003
+ 
+On the following blank line, enter your wiliki login id:
+bfurman
+
+On the following blank line, enter the last 4 digits of your UH ID:
+9872
+
+On the following blank line, tell me what name you prefer going by:
+Blaine
+
+On the following blank line, enter your major (EE,CENG,ME,CE, etc.):
+CEE
+
+On the following blank line, enter your class standing (Fr,So,Jr,Sr,Grad):
+So
+
+On the following line, enter a comma separated list of other classes you are taking:
+Physics 272, Math 243, EE 211, SOC 100 
+ 
+On the following line, enter your overall GPA:
+3.3 
+ 
+Enter the results of your learning style questionaire
+exactly as shown on the results page on the following line:
+Reflective(3) / Sensing(3) / Verbal(1) / Global(1)
+
+
+ IF you could list one person in the class you would like to have on your
+team, who would that be? (no guarentees):
+Kainoa Thomas
+
+
+You may answer the following questions by adding as many
+lines as you need:
+
+(1)  What kinds of computers, Operating Systems, and software
+     applications have you used before?
+The operating systems I have used are Ubuntu, Linux Mint, Puppy Linux,
+Lubuntu/Xubuntu, Ubuntu Mate, Chrome OS, Windows 2000/95/XP/Vista/7/8/10,
+MS-DOS 5.11, Mac OS/OS X 10.5-10.13, IOS 2-11, Android 2.2-7.1.1, Mac OS
+7.5.5., React OS, and a few more I can't come up with off the top of my head.
+
+The kind of Computers I have used and owned are a varity of Thinkpad, a couple
+of modern Dell and HP desktops, multiple Macbooks/Powerbooks, various Android
+phones, various IPhones, a couple of Xeon deskops, IPads, and many more.
+
+I have experience with the Microsoft Office suite, Final Cut Pro, Logic Pro,
+the Adobe suite, gcc compiling, Rufus, OpenOffice, Eclipse (some Adobe stuff),
+VirtualBox, Xcode, Emultaors, etc. 
+(2)  Have you done any programming?  If so, what languages?
+Python, a little bit of C and Java, Excel if that counts, and a little Swift.
+(3)  Do you have a laptop?  If so, what kind?
+I have multiple that have been aquired over the years. My main laptop is a
+Macbook (12" 2015). Others that I have are other assorted Macbooks, Thinkpads,
+HP, Dell, Acer, Asus, and a couple of others
+(4)  Do you dorm?  commute from nearby?  or commute from far away?
+Dorm
+(5)  Why are you taking this course? (just briefly).
+So I can learn more about my Major Computer Engineering and I feel that for me
+to be effective with hardware, its very important for me to know C.
+(6)  What do you expect to get from this course?
+A general and coincise knowledge of programming for C.
+

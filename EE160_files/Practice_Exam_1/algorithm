@@ -1,0 +1,14 @@
+Algorithm for MPG:
+
+1. Enter the first data points from the cars computer
+2. Then compute the first Instaneous MPG
+3. Then print that first Instaneous MPG
+3. After that, keep getting data points from the car's computer until it
+stops.
+4. While continously getting data points, re-enter the milelage values and 
+gas consumed values, compute for those values in MPG, and contiuously print 
+them.
+5. Also, while all of this is going on, keep a tally of Instantaneous MPG's
+collected and add all of the Instantaneous MPG's up.
+6. Once all data files are entered, Compute for the Average MPG and show
+the user the amount of readings computed and the Average we just computed. 

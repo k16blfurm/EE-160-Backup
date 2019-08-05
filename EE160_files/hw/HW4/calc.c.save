@@ -1,0 +1,123 @@
+/*   File:    driver2.c
+     by:    Blaine Furman
+     date:
+ */
+
+/*  This file contains a test driver for experimenting with
+ the .....
+ */
+
+#include <stdio.h>
+#include "display.h"
+#include "exponent.h"
+#include "opnd.h"
+#include "chrutil.h"
+#include "presults.h"
+#include "ops.h"
+#include "compute.h"
+/*#define DEBUG*/
+/*#define DEBUG2*/
+
+int main()
+{
+    char ch;
+    int old = 0;
+    int base, ans;
+    int prev;
+    char op;
+    char base1;
+    char expon;
+    char total_expon;
+    int conv, flag;
+    
+    /*  Initialize the dispaly with a message  */
+    write_message("Display Test");
+    
+    ch = getchar();
+    
+    while((ch < '0' || ch > '9') && ch != 'q')
+        ch = getchar();
+    
+    while(ch != 'q')
+    {
+
+        /*filter through characters*/
+        while((ch < '0' || ch > '9') && ch != 'q')
+            ch = getchar();
+        
+#ifdef DEBUG2
+        printf("this is the character %c", ch);
+#endif
+        base = flag = get_opnd(ch);
+#ifdef DEBUG
+
+        /*print the results if user didn't enter quit*/
+        if(flag != 'q')
+            printf("num is %d\n", base);
+#endif
+        /*if they did, quit the program*/
+        if(flag == 'q')
+        {
+            ch = 'q';
+            /*write the quit to the display (quit program)*/
+            write_char(ch);
+            return 0;
+        }
+        /*clear the screen*/
+        while(((ch = getchar()) != '\r') && (ch != 'q'))
+        {
+#ifdef DEBUG2
+            printf("ch is %c", ch);
+#endif
+
+	ch = getchar();
+
+	/*Get the operator*/
+	while(ch != '+' || ch != '-' || ch != 'x' || ch != '/')
+	ch = getchar();
+
+#ifdef FINAL
+printf("operator is %c", op);
+#endif
+
+	/* save the operator */
+	op = ch;
+	write_char(op);
+
+	/* save the old operand */
+	prev = base;
+
+	while((ch < '0' || ch > '9') && ch != 'q')
+        	ch = getchar();
+        
+#ifdef DEBUG2
+	printf("this is the character %c", ch);
+#endif
+      	base = flag = get_opnd(ch);
+#ifdef DEBUG
+	/*print the results if user didn't enter quit*/
+        if(flag != 'q')
+            printf("num is %d\n", base);
+#endif
+      	/*if they did, quit the program*/
+        if(flag == 'q')
+        {
+            ch = 'q';
+            /*write the quit to the display (quit program)*/
+            write_char(ch);
+            return 0;
+        }
+
+	/*get the final results*/
+	ans = compute_result(prev, op, base);
+#ifdef FINAL
+printf("num is %d\n", base);
+#endif 
+
+        }
+        
+        /*actually clear the screen*/
+        write_char(ch);
+        
+    }
+}

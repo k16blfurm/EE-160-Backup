@@ -1,0 +1,17 @@
+/* File : driver1.c *
+ * By : Blaine Furman, Jared Austria *
+ * login: bfurman, jpaust *
+ * team : XxFazeClan420xX *
+ * Date : 3/11/18
+ * Members: Blaine Furman, Jared Austia */ 
+
+/* A program to count from 1 to 20, one per line */
+
+#include <stdio.h>
+#define PROMPT
+
+int main()
+{
+
+printf("Welcome to my Hawaiian Language Spell Checker\m");
+printf("Enter your word here below:\n");

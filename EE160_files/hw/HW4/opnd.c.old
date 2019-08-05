@@ -1,0 +1,34 @@
+/*   File:	opnd.c
+     by:	Blaine Furman	
+     date:
+*/
+
+/*  
+*/
+
+#include "opnd.h"
+#include "chrutil.h"
+#include <stdio.h>
+#define DEBUG
+
+int get_opnd(char ch)
+{    int n = 0;
+     int got_dig = FALSE;
+
+			                 /* read next char                  */ 
+     while (IS_DIGIT(ch)) {              /* repeat as long as ch is a digit */
+          n = n * 10 + dig_to_int(ch);   /* accumulate value in n           */
+          got_dig = TRUE;
+#ifdef DEBUG
+printf("debug:getint: ch = %c\n", ch);   /* debug statement */
+printf("debug:getint: n = %d\n", n);     /* debug statement */
+#endif                                   /* read next char                  */
+     }
+     if(ch == EOF) return EOF;           /* test for end of file            */
+     if(!got_dig)  return ERROR;         /* test for no digits read         */
+     return n;                           /* otherwise return the result     */
+
+}
+
+
+

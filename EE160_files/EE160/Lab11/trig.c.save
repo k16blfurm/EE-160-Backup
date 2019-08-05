@@ -1,0 +1,32 @@
+/* File : trig.c                     *
+ * By : Blaine Furman                *
+ * login: bfurman                    *
+ * team : XxFazeClan420xX            *
+ * Date :4/4/18                      *
+ * Members: Blaine Furman            */ 
+/* This function is for converting sin() to angles*/
+
+#include <stdio.h>
+#include "trig.h"
+
+double Sin(float num)
+{
+int count;
+float result;
+float value;
+int exp = 1;
+
+
+result = 1;
+
+for(count = 1; count <= 5; count = count + 2)
+	{
+	while(exp <= count)
+	result = result * num;
+	
+
+	exp = 1;
+	}
+
+
+}

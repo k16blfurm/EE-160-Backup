@@ -1,0 +1,55 @@
+/*      File : temperature.c    *
+ *      By   : Blaine Furman    *
+ *      login: bfurman          *
+ *      team : XxFazeClan420xX  *
+ *      Date : 1/28/2018        */
+
+/*  To compute the statistics of cost operating a car each time a user fills
+ up gas */
+
+#include <stdio.h>
+#define COMPOUNDED_MONTHLY 12
+#define COMPOUNDED_DAY 365
+
+int main(void)
+
+{
+    float acc_amount, annual_interest;
+    int years, compounded_years;
+    float calc_acc_amt;
+    float initial_amount;
+    
+    printf("Welcome to my Accounting Investment Accumulation program\n");
+    /* entering you initial amount*/
+    printf("Enter your initial amount here (Enter 0 to quit):");
+    scanf("%f", &acc_amount);
+    /*while statement so that if your initial amount is equal to zero
+     it will stop from executing*/
+    while(acc_amount != 0){
+        
+        /*Now for entering your annual interest and years compounded*/
+        printf("Now enter your interest rate over time");
+	printf("(1 for Yearly, 2 for Monthly, 3 by day:");
+	scanf("%f", &interest);
+	printf("Enter your interest rate value");
+        scanf("%f", &annual_interest);
+        printf("Now lastly enter your number of");
+	printf("years or months or days (respectively)  compounded:");
+        scanf("%d", &years);
+        
+        /*While statement for compounded the price for amount of years
+         entered*/
+        while(years !=  compounded_years){
+        /*looping equation for account amount until the compounded years
+        equals to the years entered (compounded years adds 1 until those years
+       	equal to the years entered initially*/
+            acc_amount = acc_amount + acc_amount * annual_interest;
+            compounded_years = compounded_years + 1;
+        }
+        
+        /*printing of account amount*/
+        printf("Account amount is %f", acc_amount);
+        /*reinitialization of intial amount looping back to the top*/
+        printf("\nEnter your intial amount here (Enter 0 to quit):");
+        scanf("%f", &acc_amount);
+    }}

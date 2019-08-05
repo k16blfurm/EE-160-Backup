@@ -1,0 +1,54 @@
+/* File : exponent.c                  *
+ * By : Blaine Furman, Jared Austria *
+ * login: bfurman, jpaust            *
+ * team : XxFazeClan420xX            *
+ * Date : 3/11/18
+ * Members: Blaine Furman, Jared Austia */ 
+/* A program to count from 1 to 20, one per line */
+#include <stdio.h>
+#include "exponent.h"
+
+int is_exp(char ch)
+{
+
+switch(ch)
+{   case '!': 
+    case '@':
+    case '#':
+    case '$': 
+    case '%':
+    case '^':
+    case '&':
+    case '*':
+    case '(': return TRUE;
+    default:  return FALSE;
+}
+
+}
+
+char exp_value(char ch)
+{
+
+switch(ch)
+{    case '!': return '1';
+     case '@': return '2';
+     case '#': return '3';
+     case '$': return '4';
+     case '%': return '5';
+     case '^': return '6';
+     case '&': return '7';
+     case '*': return '8';
+     case '(': return '9';
+     case ')': return '0';
+}
+
+}
+
+float pos_power(float base, int exponent)
+{
+
+
+
+
+
+}

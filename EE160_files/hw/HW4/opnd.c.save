@@ -1,0 +1,16 @@
+/*  File:       opnd.h
+    by:         Blaine Furman
+    date:
+*/
+
+/*  opnd.c  */
+
+#include "opnd.h"
+
+
+int get_opnd(char ch)
+{
+
+
+
+}

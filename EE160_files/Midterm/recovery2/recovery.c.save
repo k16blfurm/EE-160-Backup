@@ -1,0 +1,112 @@
+/* File: lidar.c         *
+ * By: Blaine Furman     *
+ * login: bfurman        *
+ * team: XxFazeClan420xX *
+ * date: 4/18/18         *
+/* To compute the speed of oncoming cars with Lidar equiptment*/
+
+#include <stdio.h>
+#define TRUE 1.0
+#define FALSE 0.0
+#define FEETPERSEC 14.7
+#define MPH 10
+/*#define DEBUG*/
+/*#define DEBUG2*/
+
+float flush(float distance);
+
+int main()
+{
+/* initialize distances */
+float speed, mph;
+int flag;
+int first = TRUE;
+float first_meas;
+float distance = 0;
+float old = 0;
+
+	/*Get first distance*/
+	flag = scanf("%f", &distance);
+
+	/*Get distance until not non-zero distances*/
+	while(distance == 0)
+	{/*Exit if user quits program*/
+	if(flag == EOF)
+		return 0;
+	flag = scanf("%f", &distance);
+	} 
+#ifdef DEBUG
+printf("distance is %f", distance);
+#endif
+
+	/*While more distances are being seen*/
+	while(flag != EOF)
+	{
+		/*When speed is less that 10 MPH*/
+		if(distance == 0 && mph <= 10)
+		{   if(mph <= first_meas)
+		    {
+#ifdef DEBUG2
+printf("mph is %f, first_meas is %f", mph, first_meas);
+#endif
+		    /*Tell the user if car mph is safe*/
+		     printf("Car: Speed is \t %.2f MPH; Safe to cross\n", mph);
+		    }
+		    else /*Tell user if car is accelerating*/
+		    printf("Car: Speed is \t %.2f MPH;" 
+			" DO NOT STEP OFF THE CURB!(accelerating)\n",
+                        mph);
+#ifdef DEBUG2
+printf("mph is %f, first_meas is %f", mph, first_meas);
+#endif
+		 /*Get next distance while 0*/
+		     while(distance == 0)
+        	     {/*Exit if user quits program*/
+        		if(flag == EOF)
+                	    return 0;
+        		flag = scanf("%f", &distance);
+        	     }
+		/*Reset old distance*/ 
+		     old = 0;
+		     first_meas = 0;
+		     first = TRUE;
+		}
+		else if(distance == 0 && mph > 10)
+		{/*Tell user if car is not safe*/
+		printf("Car: Speed is \t %.2f MPH; DO NOT STEP OFF THE CURB!\n",
+			mph);
+		     /*Get next distance while 0*/
+		     while(distance == 0)
+        	     {/*Exit if user quits program*/
+        	           if(flag == EOF)
+                		return 0;
+        	           flag = scanf("%f", &distance);
+        	     }
+
+		/*Reset old distance*/  
+			old = 0;
+			first_meas = 0;
+			first = TRUE;
+		}
+
+		/*When input has two valid distances*/
+		if(old != 0)
+		{	/*Calculate speed in feet per second*/
+			speed = old - distance;
+`			/*Convert speed to MPH*/
+			mph = (speed / FEETPERSEC) * MPH;
+		}
+
+		/*Store first speed measurement to see if accelerating*/
+                if((first == TRUE) && (old != 0))
+                {	first_meas = mph;
+                        first = FALSE;
+                }
+
+		/*save previous distance*/
+		old = distance;
+		/*get next distance*/
+		flag = scanf("%f", &distance);
+	}
+}
+

@@ -1,0 +1,85 @@
+/*      File : grader.c         *
+ *      By   : Blaine Furman    *
+ *      login: bfurman          *
+ *      team : XxFazeClan420xX  *
+ *      Date : 3/12/17          */
+
+/*  A program to assign letter grades to scores  */
+
+#include <stdio.h>
+/*#include "assign_grade.h"*/
+
+#define FALSE 0.0
+#define END 1.0
+
+char assign_grade(int score, int a, int b, int c, int d);
+
+int main()
+{
+    int score;
+    char grade;
+    int count_fail = 0;
+    int count_pass = 0;
+    int count_illegal = 0;
+    int a, b, c, d;
+    int end = 0;
+
+       scanf("%d %d %d %d", &a, &b, &c, &d);
+
+       while(end != END){ 
+       	      if(a > b && b > c && c > d){
+	       printf("valid grading scale: continuing to compilation\n");
+	       end = END + end;
+					 }
+	      else{
+		 printf("invalid grading scale\n");
+		scanf("%d %d %d %d", &a, &b, &c, &d);}
+    
+ 			}
+       while(scanf("%d", &score) == 1)
+       {
+	      grade = assign_grade(score, a, b, c, d);
+              printf("%d: ", score);
+	      if(grade == FALSE){
+	      printf("illegal score\n");
+	      count_illegal = count_illegal + 1;
+				}
+	      if(grade == 'A' || grade == 'B' || grade == 'C')
+	      {
+              printf("%c\n", grade);
+	      count_pass= count_pass + 1;
+	      }
+
+	      else if(grade == 'D' || grade == 'F')
+	      {
+	      printf("%c\n", grade);
+              count_fail= count_fail + 1;
+	      }
+       }
+
+    printf("Passing scores: %d\n", count_pass);
+    printf("Failing scores: %d\n", count_fail);
+    printf("Illegal scores: %d\n", count_illegal);
+
+}
+
+
+char assign_grade(int score, int a, int b, int c, int d)
+{
+int value;
+
+	if(score >= a && score <= 100)
+        return 'A';
+	if(score < a && score >= b)
+	return 'B';
+	if(score < b && score >= c)
+	return 'C';
+	if(score < c && score >= d)
+	return 'D';
+	if(score < d && score >= 0)
+	return 'F';
+	if(score > 100 || score < 0)
+	return FALSE;
+}
+
+

@@ -1,0 +1,114 @@
+
+/*   File:	ship_random.c
+     by:	Tep Dobry	
+     date:
+*/
+
+/*  This file contains a test driver for experimenting with
+	randomizing 
+*/
+
+#include <stdio.h>
+#include "display.h"
+#include <stdlib.h>
+#include <time.h>
+#include "move.h"
+/*#define DEBUG*/
+
+int ships(int latitude, int longitude, int a[][ROWS], char ship);
+void show_ship(char ship_type, int latitude, int longitude);
+int random_ships(int a[][ROWS]);
+
+
+int random_set(int a[][ROWS], char ship)
+{
+int run, flag;
+int place;
+int latitude, longitude, location;
+int horizontal, vertical;
+int up = 0; 
+int down = 0;
+int n = 1;
+int i;
+
+	for( i = 0 ; i < n ; i++ ) 
+	{
+	/*clear old latitude && longitude*/
+		longitude = 0;
+		latitude = 0;
+	/*Randomize ships for the gameboard*/
+		latitude  = (rand() % 14) + 1;
+		longitude = (rand() % 4) + 1 ;
+	/*If not specified, randomize for cruisers*/
+		horizontal = 2;
+
+		/*Randomize ship orentation on board (Tabblephis)*/
+		if(ship == 'T')
+		{
+			vertical = TRUE;
+			horizontal = rand() % 2;
+		}
+		/*Randomize ship orentation on board (Fruiser)*/
+		if(ship == 'F')
+		{
+			horizontal = rand() % 2;
+			vertical = FALSE;
+		}
+
+		/*Check if space has an existing ship already placed there*/
+		if(a[longitude][latitude] >= ONE)
+		{	/*Return to get remapped*/
+			return FALSE;
+		}
+		/*saving ship config for game*/
+		ships(latitude,longitude,a, ship);
+
+		/*If ship is randomized to be horizontal*/
+		if(horizontal == 1)
+		{
+			/*If Tabblephis ship*/
+			if(vertical == TRUE)
+			{
+			/*Go up one place*/
+			up = longitude + 1;
+			if(a[up][latitude] >= ONE)
+                        	return FALSE;
+			ships(latitude,up,a,ship);
+			}
+
+		down = longitude - 1;
+#ifdef DEBUG
+		show_ship(ship, down, latitude);
+#endif
+		if(a[down][latitude] >= ONE)
+                        return FALSE;
+		/**/ships(latitude,down,a,ship);
+	}
+
+	if(horizontal == 0)
+	{
+		if(vertical == TRUE)
+		{
+		up = latitude + 1;
+#ifdef DEBUG
+		show_ship(ship, longitude, up);
+#endif
+		if(a[longitude][up] >= ONE)
+                        return FALSE;
+		/**/ships(up,longitude,a,ship);
+		}
+		down = latitude - 1;
+#ifdef DEBUG
+		show_ship(ship, longitude, down);
+#endif
+		if(a[longitude][down] >= ONE)
+                        return FALSE;
+		/**/ships(down,longitude,a,ship);
+
+
+	}
+	}
+	}
+	return TRUE;
+	}
+

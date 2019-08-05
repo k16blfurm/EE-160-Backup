@@ -1,0 +1,23 @@
+Algorithm for temptble.c:
+
+1. Scanf the starting and stopping temperatures
+2. Convert Fahrenheit to Celsius with tocelius driver.
+3. Assign numbers to variables.
+4. Make start printf of table with starting temperature of Celsius and
+fahrenheit
+5. loop add 5 to Fahrenheit until it reaches the stop temperature and print
+the conversation of that to  the celsius conversion.
+
+Algorithm for account.c
+
+1. declare floats and integers
+2. Entering your initial account amount
+3. Start the first while statement (when account amount isnʻt equal to zero)
+4. Enter the annual interest rate and years compounded
+5. Start your second while statement. (When years doesn’t equal to the compounded years, which will eventually add up to the years entered)
+6. Using the equation given from the lab.
+7. Adding to the compounded years by 1
+8. Looping that until the compounded years equal to the years entered
+9. Then printing the final results
+10. Reinitializing the program by entering in the initial amount again and repeating previous steps 3 through 10 until 0 is entered.
+

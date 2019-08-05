@@ -1,0 +1,46 @@
+/*   File:	opnd.c
+     by:	Blaine Furman	
+     date:
+*/
+
+/*  
+*/
+
+#include "opnd.h"
+#include "chrutil.h"
+#include <stdio.h>
+#define DEBUG
+
+int get_opnd(char ch1)
+{   int n = 0;
+    int got_dig = FALSE;
+    int exponent = FALSE;
+    signed char ch;
+
+    
+    ch = ch1;
+    while (IS_WHITE_SPACE(ch))          /* skip white space                */
+        ch = getchar();
+    while (IS_DIGIT(ch) && ch != 'q') {              /* repeat as long as ch is a digit */
+           /* accumulate value in n           */
+        got_dig = TRUE;
+#ifdef DEBUG
+        printf("debug:getint: ch = %c\n", ch);   /* debug statement */
+        printf("debug:getint: n = %d\n", n);     /* debug statement */
+#endif
+        ch = getchar();                /* read next char                  */
+	if(is_exp(ch) == TRUE && ch == '^') /* recognize if the character
+						entered is an operator */
+	     exponent = TRUE;
+    }
+    if(exponent == TRUE)
+	 pos_power
+    if(ch == 'q') return 'n';               /* test for end of file            */
+    if(!got_dig)  return 0;             /* test for no digits read         */
+    return n;                           /* otherwise return the result     */
+    
+}
+
+
+
+

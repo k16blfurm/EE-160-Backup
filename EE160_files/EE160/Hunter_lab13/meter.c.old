@@ -1,0 +1,35 @@
+/* file: meter.c        *
+   by: Hunter Garrett   *
+   login: hsgarr97      *
+   date:    11/28/17    *
+   team:   coca_cola    *
+*/
+
+#include <stdio.h>
+#include "meter.h"
+
+float compute_usage(int num, int *vals, int use[], int *hi_idx)
+/*  this function is given the count of meter readings available,
+        and the array of meter readings.  It computes the water
+        usage for each hourly interval in the array use, and
+        returns (directly) the average usage for the day and
+        (indirectly) the index of the highest water usage value.  */
+//compute_usage(hours, readings, usage, &hi);
+{
+	int i;
+	float total = 0;
+	int greatest;
+
+	for(i = 0; i < num-1; i++)
+	{
+	use[i] = vals[i+1] - vals[i];	//find the usage
+	total += use[i];		//sum of the usage
+		if(use[i] > greatest)   //find the greatest index
+		{
+		greatest = use[i];
+		*hi_idx = i;
+		}
+	}
+	total = total / i;		//average of the usage
+	return total;			//return the usage
+}
